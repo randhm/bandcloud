@@ -7,7 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <% if current_artist %>
+    logged in as #{current_artist.name},
+              <%= link_to 'Logout', logout_path, method: :delete %>
+            <% else %>
+              <%= link_to "Login", login_path %>
+              or
+              <%= link_to "Sign up", signup_path %>
+            <% end %>
 
+    <% flash.each do |name, message| %>
+     <div class="flash-message flash-message-<%= name %>">
+      <%= message %>
+     </div>
+    <% end %>
+  <nav>
+    <li><%=link_to "Home", home_index_path %></li>
+    <li><%=link_to "Artists", artists_path %></li>
+    <li><%=link_to "Add a song", new_song_path %></li>
+
+  </nav>
 <%= yield %>
 
 </body>

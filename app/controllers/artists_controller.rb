@@ -14,11 +14,14 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
+    @song = Song.find(params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @artist }
     end
+
   end
 
   # GET /artists/new
@@ -41,15 +44,11 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(params[:artist])
-
-    respond_to do |format|
-      if @artist.save
-        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
-        format.json { render json: @artist, status: :created, location: @artist }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @artist.errors, status: :unprocessable_entity }
-      end
+     if @artist.save
+       session[:artist_id] = @artist.id
+       redirect_to root_path, notice: "Thank you for signing up!"
+     else
+   render 'new'
     end
   end
 

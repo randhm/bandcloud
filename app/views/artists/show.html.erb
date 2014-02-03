@@ -18,8 +18,13 @@
 </p>
 
 <p>
-  <b>Song:</b>
-  <%= @artist.song_id %>
+  <b>Songs:</b>
+  <% @artist.songs.each do |song|%>
+  <%= song.song_name %>
+   <audio controls>
+    <source src=<%= @song.song_file.url %> type="audio/mpeg">
+   </audio>
+  <% end %>
 </p>
 
 <p>

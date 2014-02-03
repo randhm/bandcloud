@@ -10,6 +10,8 @@ gem 'ransack'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'better_errors'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'binding_of_caller'
 
 
 # Gems used only for assets and not required
