@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /artists
   # GET /artists.json
   def index
@@ -14,7 +16,6 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
-    @song = Song.find(params[:id])
 
 
     respond_to do |format|

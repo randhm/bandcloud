@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /songs
   # GET /songs.json
   def index
@@ -41,6 +43,7 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
     @song = Song.new(params[:song])
+    @song.artist = current_artist
 
     respond_to do |format|
       if @song.save

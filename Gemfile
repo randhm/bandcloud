@@ -12,6 +12,7 @@ gem 'rmagick'
 gem 'better_errors'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'binding_of_caller'
+gem 'cancan'
 
 
 # Gems used only for assets and not required

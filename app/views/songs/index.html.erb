@@ -3,9 +3,8 @@
 <table>
   <tr>
     <th>Song name</th>
-    <th>Song file</th>
+
     <th>Artist</th>
-    <th>Comment</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,11 +12,9 @@
 
 <% @songs.each do |song| %>
   <tr>
-    <td><%= song.song_name %></td>
-    <td><%= song.song_file %></td>
-    <td><%= song.artist_id %></td>
+    <td><%= link_to song.song_name, song %></td>
+    <td><%= song.artist.band_name %></td>
     <td><%= song.comment_id %></td>
-    <td><%= link_to (song.song_file.url), song %></td>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>

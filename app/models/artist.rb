@@ -9,4 +9,20 @@ class Artist < ActiveRecord::Base
 
   has_many :songs
 
+  before_validation :set_default_role
+
+
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
+
+
+  private
+  def set_default_role
+    self.role ||= :artist
+  end
+
+
 end
+
+

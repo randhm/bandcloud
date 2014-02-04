@@ -8,7 +8,7 @@
 </head>
 <body>
     <% if current_artist %>
-    logged in as #{current_artist.name},
+    logged in as <%= current_artist.band_name %>,
               <%= link_to 'Logout', logout_path, method: :delete %>
             <% else %>
               <%= link_to "Login", login_path %>
@@ -23,8 +23,11 @@
     <% end %>
   <nav>
     <li><%=link_to "Home", home_index_path %></li>
-    <li><%=link_to "Artists", artists_path %></li>
-    <li><%=link_to "Add a song", new_song_path %></li>
+    <li><%=link_to "All artists", artists_path %></li>
+    <li><%=link_to "All Songs", songs_path %></li>
+   <% if current_artist %>
+   <li><%=link_to "My profile", artist_path(current_artist) %></li>
+   <% end %>
 
   </nav>
 <%= yield %>
