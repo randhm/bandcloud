@@ -22,15 +22,12 @@
   <% @artist.songs.each do |song|%>
   <%= song.song_name %>
    <audio controls>
-    <source src=<%= @song.song_file.url %> type="audio/mpeg">
+    <source src=<%= song.song_file.url %> type="audio/mpeg">
    </audio>
   <% end %>
 </p>
 
-<p>
-  <b>Comment:</b>
-  <%= @artist.comment_id %>
-</p>
+
 
 <%= link_to 'Add a song', new_song_path %>
 <%= link_to 'Edit', edit_artist_path(@artist) %>

@@ -7,7 +7,8 @@ class Artist < ActiveRecord::Base
 
   mount_uploader :band_image, ArtistUploader
 
-  has_many :songs
+  has_many :songs, dependent: :destroy
+  has_many :comments
 
   before_validation :set_default_role
 

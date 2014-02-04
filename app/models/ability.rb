@@ -14,6 +14,8 @@ class Ability
      can :manage, Artist do |artist_object|
       artist_object == artist
     end
+      can :read, :all
+      can :create, Song
 
    else
     can :create, Artist #guests (called artists but should really be Users, should have the ability to create themselves, otherwise they'll never be able to get onto the sign up page)

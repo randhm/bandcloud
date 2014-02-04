@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-a = Artist.create band_name: 'Band E', email: 'bye@bye.com', password: 'password', password_confirmation: 'password'
+a = Artist.create band_name: 'Admin', email: 'admin1@admin1.com', password: 'password', password_confirmation: 'password'
 
 a.role = :admin
 
