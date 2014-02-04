@@ -17,11 +17,27 @@
 
 
 <p>
-  <b>Comment:</b>
-  <%= @song.comment_id %>
+  <b>Comments:</b>
+  <% @song.comments.each do |comment| %>
+
+
+    <td><%= comment.comment_for_artist %></td><br>
+    <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
+
+   <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+   <tr>
+<% end %>
 </p>
 
 
-<%= link_to 'Edit', edit_song_path(@song) %> |
+
+
+
+
+
+<%= link_to 'Add a comment', new_song_comment_path(@song) %>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %>
 <%= link_to 'Back', songs_path %>
 

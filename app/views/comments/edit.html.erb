@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Show', song_comment_path(@song, @comment) %> |
+<%= link_to 'Back', song_comment_path(@song) %>
