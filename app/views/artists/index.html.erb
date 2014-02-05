@@ -19,7 +19,7 @@
     <td><%= artist.biography %></td>
     <td><%= artist.song_id %></td>
     <td><%= artist.comment_id %></td>
-    <td><%= link_to image_tag(artist.band_image.thumb.url), artist %></td>
+    <td class="profile_img"><%= link_to image_tag(artist.band_image.thumb), artist %></td>
 
     <td><%= link_to 'Edit profile', edit_artist_path(artist) if can? :edit, artist %></td>
     <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, artist %></td>

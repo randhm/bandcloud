@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
+<p>
 
+  <td class="profile_img"><%= image_tag @artist.band_image.thumb %></td>
+</p>
 <p>
   <b>Band name:</b>
   <%= @artist.band_name %>
@@ -12,10 +15,7 @@
   <%= @artist.biography %>
 </p>
 
-<p>
-  <b>Band image:</b>
-  <%= image_tag @artist.band_image.detail.url %>
-</p>
+
 
 <p>
   <b>Songs:</b>

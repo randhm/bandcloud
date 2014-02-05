@@ -1,0 +1,38 @@
+body {
+  font-family: Futura, helvetica, arial, sans-serif;
+  font-size: 14px;
+}
+
+nav {
+  width: 50%;
+  float: right;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  float:right;
+}
+
+nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  border-right: 1px solid #ccc;
+}
+
+a:hover {
+  background-color:#EBE2C2;
+}
+
+h1 {
+  color: green;
+}
+
+
+.profile_img img {
+  max-width: 100px;
+}

@@ -23,6 +23,7 @@
 
   <% @song.comments.each do |comment| %>
 
+    <td class="profile_img"><%= image_tag comment.artist.band_image.thumb %></td><br>
 
     <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
     <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
