@@ -5,9 +5,13 @@ Bandcloud::Application.routes.draw do
 
 
   resources :songs do
-    resources :comments
+    resources :comments do
+      get 'flag', on: :member
+      get 'flagged_comments', on: :member
+    end
   end
 
+  get '/flagged_comments', to: 'comments#flagged_comments', as: 'flagged_comments'
   resources :artists
   resources :home
   resources :sessions

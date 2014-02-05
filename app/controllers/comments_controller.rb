@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   before_filter :load_song
+  skip_before_filter :load_song, only: :flagged_comments
   def index
     @comment = @song.comments.all
 
@@ -89,9 +90,24 @@ class CommentsController < ApplicationController
     end
   end
 
+  def flag
+    # binding.pry
+    @comment = Comment.find(params[:id])
+    @comment.flag = true
+    @comment.save
+    redirect_to @song
+  end
+
+def flagged_comments
+    @comments = Comment.where(flag: true)
+end
+
   private
 
   def load_song
     @song = Song.find(params[:song_id])
   end
+
+
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204160737) do
+ActiveRecord::Schema.define(:version => 20140205174616) do
 
   create_table "artists", :force => true do |t|
     t.string   "band_name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20140204160737) do
     t.string   "comment_for_artist"
     t.integer  "song_id"
     t.integer  "artist_id"
+    t.boolean  "flag"
   end
 
   create_table "songs", :force => true do |t|
