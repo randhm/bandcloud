@@ -20,9 +20,9 @@
     <td><%= artist.song_id %></td>
     <td><%= artist.comment_id %></td>
     <td><%= link_to image_tag(artist.band_image.thumb.url), artist %></td>
-    <td><%= link_to 'Show', artist %></td>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <td><%= link_to 'Edit profile', edit_artist_path(artist) if can? :edit, artist %></td>
+    <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, artist %></td>
   </tr>
 <% end %>
 </table>

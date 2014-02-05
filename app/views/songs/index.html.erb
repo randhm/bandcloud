@@ -14,8 +14,8 @@
     <td><%= link_to song.song_name, song %></td>
     <td><%= song.artist.band_name %></td>
     <td><%= song.comment_id %></td>
-    <td><%= link_to 'Edit song', edit_song_path(song) %></td>
-    <td><%= link_to 'Destroy song', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit song', edit_song_path(song) if can? :edit, song %></td>
+    <td><%= link_to 'Destroy song', song, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, song %></td>
   </tr>
 <% end %>
 </table>

@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Artist:</b>
+  <%= @song.artist.band_name %>
+</p>
+
+<p>
   <b>Song name:</b>
   <%= @song.song_name %>
 </p>
-
 
 
 <p>
@@ -15,29 +19,29 @@
 </p>
 
 
-
 <p>
-  <b>Comments:</b>
+
   <% @song.comments.each do |comment| %>
 
 
-    <td><%= comment.comment_for_artist %></td><br>
+    <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
     <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
 
-   <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+    <b>Comment made on:</b> <td><%= comment.created_at %></td><br>
+
+    <td><%= link_to 'Edit comment', edit_song_comment_path(@song, comment) if can? :edit, comment%></td>
+
+   <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td><br><br>
    <tr>
 <% end %>
 </p>
 
 
 
+<%= link_to 'Add a comment', new_song_comment_path(@song) %><br>
 
 
+<%= link_to 'Edit song', edit_song_path(@song) if can? :edit, @song %>
 
-
-<%= link_to 'Add a comment', new_song_comment_path(@song) %>
-
-
-<%= link_to 'Edit', edit_song_path(@song) %>
-<%= link_to 'Back', songs_path %>
+<%= link_to 'Back to songs', songs_path %>
 

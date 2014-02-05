@@ -19,8 +19,8 @@
 
 <p>
   <b>Songs:</b>
-  <% @artist.songs.each do |song|%>
-  <%= song.song_name %>
+  <% @artist.songs.each do |song|%><br>
+  <%= song.song_name %><br>
    <audio controls>
     <source src=<%= song.song_file.url %> type="audio/mpeg">
    </audio>

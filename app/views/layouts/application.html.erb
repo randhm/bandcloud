@@ -7,29 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <% if current_artist %>
-    logged in as <%= current_artist.band_name %>,
-              <%= link_to 'Logout', logout_path, method: :delete %>
-            <% else %>
-              <%= link_to "Login", login_path %>
-              or
-              <%= link_to "Sign up", signup_path %>
-            <% end %>
-
-    <% flash.each do |name, message| %>
-     <div class="flash-message flash-message-<%= name %>">
-      <%= message %>
-     </div>
-    <% end %>
-  <nav>
-    <li><%=link_to "Home", home_index_path %></li>
-    <li><%=link_to "All artists", artists_path %></li>
-    <li><%=link_to "All Songs", songs_path %></li>
-   <% if current_artist %>
-   <li><%=link_to "My profile", artist_path(current_artist) %></li>
-   <% end %>
-
-  </nav>
+<nav>
+  <% if current_artist %>
+    <li>Hello, <%= current_artist.band_name %></li>
+    <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "Sign up", signup_path %></li>
+    <li><%= link_to "Login", login_path %></li>
+  <% end %>
+  <% if current_artist %>
+    <li><%=link_to "My profile", artist_path(current_artist) %></li>
+  <% end %>
+  <li><%=link_to "Songs", songs_path %></li>
+  <li><%=link_to "Artists", artists_path %></li>
+  <li><%=link_to "Home", home_index_path %></li>
+</nav>
+ <% flash.each do |name, message| %>
+   <div class="flash-message flash-message-<%= name %>">
+    <%= message %>
+   </div>
+  <% end %>
 <%= yield %>
 
 </body>
