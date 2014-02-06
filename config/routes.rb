@@ -7,7 +7,7 @@ Bandcloud::Application.routes.draw do
   resources :songs do
     resources :comments do
       get 'flag', on: :member
-      get 'flagged_comments', on: :member
+      # get 'flagged_comments', on: :member
     end
   end
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bandcloud</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
@@ -22,13 +22,19 @@
   <li><%=link_to "Songs", songs_path %></li>
   <li><%=link_to "Artists", artists_path %></li>
   <li><%=link_to "Home", home_index_path %></li>
+  <li><%=link_to "Flagged comments", flagged_comments_path if can? :able_to_see_link, Comment %></li>
 </nav>
  <% flash.each do |name, message| %>
    <div class="flash-message flash-message-<%= name %>">
     <%= message %>
    </div>
   <% end %>
-<%= yield %>
+
+  <h1>BandCloud</h1>
+<div class="container">
+  <%= yield %>
+</div>
+
 
 </body>
 </html>

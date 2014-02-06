@@ -20,6 +20,7 @@ class Ability
       can :read, :all
       can :create, Song
       can :create, Comment
+      cannot :able_to_see_link, Comment
 
    else
     can :create, Artist #guests (called artists but should really be Users, should have the ability to create themselves, otherwise they'll never be able to get onto the sign up page)

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     artist = Artist.find_by_email(params[:email])
       if artist && artist.authenticate(params[:password])
         session[:artist_id] = artist.id
-        redirect_to root_path, notice: "logged innnn!"
+        redirect_to root_path
       else
         flash.now.alert = "invalid login credentials"
         render "new"
