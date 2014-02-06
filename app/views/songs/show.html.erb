@@ -17,7 +17,7 @@
 </p>
 <p>
   <% @song.comments.each do |comment| %>
-    <td class="profile_img"><%= image_tag comment.artist.band_image.thumb, class: "profile_img" %></td><br>
+    <td><%= image_tag comment.artist.band_image.thumb, class: "profile_img" %></td><br>
     <div class='comment_stuff'>
       <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
       <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>

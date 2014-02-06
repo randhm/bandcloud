@@ -1,15 +1,32 @@
-<div id="floating-page">
+<div class="floating-page-400px">
 <h1>Welcome to BandCloud</h1>
 <p>
 Recently added tracks
-<%- @songs.each do |song| %>
+<% @songs.each do |song| %>
   <ul>
     <li><%=link_to song.song_name, song_path(song)%></li>
-    <li><%= distance_of_time_in_words(song.created_at, Time.now) %></li>
+    <li><%= link_to song.artist.band_name, artist_path(song.artist) %></li>
+    <li><%= distance_of_time_in_words(song.created_at, Time.now) %> ago</li>
   </ul>
 <%end%>
 </p>
 <p>
 Hot topics
+<ul>
+<% @comments.each do |comment| %>
+<li class='comment_container cf'>
+  <div class='comment_image_container'>
+<%= image_tag comment.artist.band_image.thumb, class: "profile_img" %>
+
+  </div>
+
+        <ul class='profile_info'>
+          <li><%= comment.comment_for_artist %></li>
+          <li><%= comment.artist.band_name %></li>
+          <li><%= distance_of_time_in_words(comment.created_at, Time.now) %> ago</li>
+        </ul>
+</li>
+<% end %>
+</ul>
 </p>
 </div>
