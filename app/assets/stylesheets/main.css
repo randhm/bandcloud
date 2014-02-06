@@ -34,13 +34,15 @@ h1 {
   color: white;
 }
 
-.profile_img img {
+.profile_img {
   display: block;
   clear: both;
   float: left;
   max-width: 100px;
   padding: 0px;
   margin: 0px;
+  border-radius: 150px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
 
 .comment_stuff {
@@ -116,4 +118,6 @@ ul a {
 .img_container {
   text-align: center;
 }
+
+
 

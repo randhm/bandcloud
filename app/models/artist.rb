@@ -2,8 +2,9 @@ class Artist < ActiveRecord::Base
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
-  validates :band_name, presence: true, length: { in: 2..200 }, uniqueness: true
+  validates :band_name, presence: true, length: { in: 2..200 }
   validates :biography, presence: true, length: { in: 2..2000 }
+  validates :password, presence: true, length: { in: 6..40 }
 
 
 

@@ -4,8 +4,8 @@
 
 
 <p class="img_container">
-  <td class="profile_img"><%= image_tag @artist.band_image.thumb %></td>
-</p>
+  <td><%= image_tag @artist.band_image.thumb, class: "profile_img" %></td>
+</p><br><br><br><br><br><br>
 <p>
   <b>Band name:</b>
   <%= @artist.band_name %>
