@@ -1,26 +1,10 @@
-<h1>Listing artists</h1>
-
+<div id="floating-artists-page">
+<h1>Artists</h1>
 <table>
-  <tr>
-    <th>Band name</th>
-    <th>Biography</th>
-    <th>Song</th>
-    <th>Comment</th>
-    <th>Band image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @artists.each do |artist| %>
   <tr>
-
     <td><%= artist.band_name %></td>
-    <td><%= artist.biography %></td>
-    <td><%= artist.song_id %></td>
-    <td><%= artist.comment_id %></td>
     <td class="profile_img"><%= link_to image_tag(artist.band_image.thumb), artist %></td>
-
     <td><%= link_to 'Edit profile', edit_artist_path(artist) if can? :edit, artist %></td>
     <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, artist %></td>
   </tr>
@@ -28,5 +12,4 @@
 </table>
 
 <br />
-
-<%= link_to 'New Artist', new_artist_path %>
+</div>
