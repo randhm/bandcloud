@@ -1,10 +1,9 @@
-<div id="floating-profile-page">
+<div class="floating-page-400px">
   <h1>Profile Page</h1>
 <p id="notice"><%= notice %></p>
 
 
-<p>
-
+<p class="img_container">
   <td class="profile_img"><%= image_tag @artist.band_image.thumb %></td>
 </p>
 <p>
@@ -17,8 +16,6 @@
   <%= @artist.biography %>
 </p>
 
-
-
 <p>
   <b>Songs:</b>
   <% @artist.songs.each do |song|%><br>
@@ -29,10 +26,7 @@
   <% end %>
 </p>
 
-
-
 <%= link_to 'Add a song', new_song_path %>
-<%= link_to 'Edit', edit_artist_path(@artist) %>
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Edit profile', edit_artist_path(@artist) %>
 </div>
 

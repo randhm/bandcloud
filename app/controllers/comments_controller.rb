@@ -98,9 +98,9 @@ class CommentsController < ApplicationController
     redirect_to @song
   end
 
-def flagged_comments
-    @comments = Comment.where(flag: true)
-end
+  def flagged_comments
+      @comments = Comment.where(flag: true)
+  end
 
   private
 

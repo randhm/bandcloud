@@ -27,6 +27,10 @@ class Ability
     can :read, :all
 
     end
+
+    cannot :delete, Artist do |target_artist|
+      artist == target_artist
+    end
   end
 end
 

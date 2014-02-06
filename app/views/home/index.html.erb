@@ -2,6 +2,12 @@
 <h1>Welcome to BandCloud</h1>
 <p>
 Recently added tracks
+<%- @songs.each do |song| %>
+  <ul>
+    <li><%=link_to song.song_name, song_path(song)%></li>
+    <li><%= distance_of_time_in_words(song.created_at, Time.now) %></li>
+  </ul>
+<%end%>
 </p>
 <p>
 Hot topics

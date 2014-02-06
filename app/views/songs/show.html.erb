@@ -1,3 +1,4 @@
+<div class="floating-page-400px">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -9,7 +10,7 @@
   <%= @song.song_name %>
 </p>
 <p>
-  <b>Song file:</b>
+
   <audio controls>
   <source src=<%= @song.song_file.url %> type="audio/mpeg">
 </audio>
@@ -17,21 +18,24 @@
 <p>
   <% @song.comments.each do |comment| %>
     <td class="profile_img"><%= image_tag comment.artist.band_image.thumb %></td><br>
-    <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
-    <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
-    <b>Comment made on:</b> <td><%= comment.created_at %></td><br>
-    <td><%= link_to 'Edit comment', edit_song_comment_path(@song, comment) if can? :edit, comment%></td>
-    <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td>
+    <div class='comment_stuff'>
+      <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
+      <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
+      <b>Comment made on:</b> <td><%= comment.created_at %></td><br>
+      <td><%= link_to 'Edit comment', edit_song_comment_path(@song, comment) if can? :edit, comment%></td>
+      <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td>
+
 
     <% if comment.flag  %>
         <p>Comment flagged innapropriate</p>
         <% else %>
         <%= link_to 'Flag Comment', flag_song_comment_path(@song, comment), data: { confirm: 'Flag comment as innapropriate?' } %>
     <% end %>
+    </div>
 
 <% end %>
 </p>
 <%= link_to 'Add a comment', new_song_comment_path(@song) %><br>
 <%= link_to 'Edit song', edit_song_path(@song) if can? :edit, @song %>
 <%= link_to 'Back to songs', songs_path %>
-
+</div>

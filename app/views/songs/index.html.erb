@@ -1,12 +1,10 @@
+<div class="floating-page-400px">
 <h1>Listing songs</h1>
 
 <table>
   <tr>
     <th>Song name</th>
     <th>Artist</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @songs.each do |song| %>
@@ -23,3 +21,4 @@
 <br />
 
 <%= link_to 'Add New Song', new_song_path %>
+</div>
