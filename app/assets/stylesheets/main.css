@@ -1,6 +1,7 @@
 body {
-  font-family: Futura, helvetica, arial, sans-serif;
+  font-family: 'Lato', helvetica, arial, sans-serif;
   font-size: 14px;
+  color: white;
 }
 
 nav {
@@ -29,10 +30,47 @@ a:hover {
 }
 
 h1 {
-  color: green;
+  color: white;
 }
 
 
 .profile_img img {
   max-width: 100px;
+}
+
+#floating-signup_page {
+  width: 200px;
+  margin-left: auto;
+ /* margin-right: 200px;*/
+  padding: 50px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color:rgba(255,0,0,0.2);
+*/  color: white;
+}
+
+.floating-page {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  margin-top: -45px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+/*  background-color:rgba(255,0,0,0.2);
+*/  color: white;
+}
+
+a {
+  color: white
+}
+
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
 }

@@ -32,10 +32,15 @@
 
     <td><%= link_to 'Edit comment', edit_song_comment_path(@song, comment) if can? :edit, comment%></td>
 
-   <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td><br><br>
+   <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td>
 
-    <%= link_to 'Flag comment', flag_song_comment_path(@song, comment) %>
-   <!--def flag method [@song, comment] -->
+
+<% if comment.flag  %>
+        <p>Comment flagged innapropriate</p>
+        <% else %>
+        <%= link_to 'Flag Comment', flag_song_comment_path(@song, comment), data: { confirm: 'Flag comment as innapropriate?' } %>
+        <% end %>
+
 
 <% end %>
 </p>
