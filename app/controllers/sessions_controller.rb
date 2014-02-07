@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         session[:artist_id] = artist.id
         redirect_to root_path
       else
-        flash.now.alert = "invalid login credentials"
+        flash.now.alert = "You've either entered your email or password incorrectly"
         render "new"
       end
   end

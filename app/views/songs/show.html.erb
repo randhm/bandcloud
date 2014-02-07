@@ -21,13 +21,12 @@
     <div class='comment_stuff'>
       <b>Comment: </b><td><%= comment.comment_for_artist %></td><br>
       <b>Comment left by:</b> <td><%= comment.artist.band_name %></td><br>
-      <b>Comment made on:</b> <td><%= comment.created_at %></td><br>
+      <b>Comment made:</b> <td><%= distance_of_time_in_words(comment.created_at, Time.now) %></td><br>
       <td><%= link_to 'Edit comment', edit_song_comment_path(@song, comment) if can? :edit, comment%></td>
       <td><%= link_to 'Delete comment', [@song, comment], method: :delete, data: { confirm: 'Are you sure?' } if can? :delete, comment %></td>
 
-
     <% if comment.flag  %>
-        <p>Comment flagged innapropriate</p>
+        <p>Comment flagged for moderation</p>
         <% else %>
         <%= link_to 'Flag Comment', flag_song_comment_path(@song, comment), data: { confirm: 'Flag comment as innapropriate?' } %>
     <% end %>
